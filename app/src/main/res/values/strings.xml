@@ -10,5 +10,7 @@
     <string name="label_book_now">Book Now!</string>
     <string name="label_book_slogan">You can book the desired service and get the best quality!</string>
     <string name="label_promotion_uppercase">PROMOTION</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
