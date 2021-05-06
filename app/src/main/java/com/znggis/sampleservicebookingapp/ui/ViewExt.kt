@@ -3,10 +3,9 @@ package com.znggis.sampleservicebookingapp.ui
 
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.*
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
@@ -73,3 +72,37 @@ fun <T : ViewBinding> Fragment.viewBinding(viewBindingFactory: (View) -> T): Vie
         fragment = this,
         viewBindingFactory = viewBindingFactory
     )
+
+
+/**
+ * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
+ */
+fun View.setupSnackbar(
+    lifecycleOwner: LifecycleOwner,
+    snackbarEvent: LiveData<Event<String>>,
+    timeLength: Int
+) {
+
+    snackbarEvent.observe(lifecycleOwner, Observer { event ->
+        event.getContentIfNotHandled()?.let {
+            showSnackbar(it, timeLength)
+        }
+    })
+}
+
+
+/**
+ * Transforms static java function Snackbar.make() to an extension function on View.
+ */
+fun View.showSnackbar(snackbarText: String, timeLength: Int) {
+    Snackbar.make(this, snackbarText, timeLength).run {
+        addCallback(object : Snackbar.Callback() {
+            override fun onShown(sb: Snackbar?) {
+            }
+
+            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+            }
+        })
+        show()
+    }
+}

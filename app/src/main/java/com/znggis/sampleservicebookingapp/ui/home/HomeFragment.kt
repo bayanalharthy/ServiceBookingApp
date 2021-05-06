@@ -2,15 +2,18 @@ package com.znggis.sampleservicebookingapp.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
 import com.znggis.sampleservicebookingapp.databinding.FragmentHomeBinding
 import com.znggis.sampleservicebookingapp.di.injector.inject
+import com.znggis.sampleservicebookingapp.ui.setupSnackbar
 import com.znggis.sampleservicebookingapp.ui.viewBinding
 import javax.inject.Inject
 
@@ -40,6 +43,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.root.setupSnackbar(viewLifecycleOwner, viewModel.error, Snackbar.LENGTH_LONG)
+
+
+        viewModel.data.observe(viewLifecycleOwner, {
+
+        })
+
+
+        viewModel.loading.observe(viewLifecycleOwner, {
+
+        })
+        viewModel.fetch()
     }
 
     override fun onDestroyView() {
