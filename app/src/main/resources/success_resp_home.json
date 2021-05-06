@@ -1,0 +1,207 @@
+{
+  "title": "Book Now!",
+  "subTitle": "You can book the desired service and get the best quality!",
+  "onGoingServiceRequests": [
+    {
+      "orderNumber": 11534,
+      "selectedSchedule": "2021-02-21T11:00:00.000Z",
+      "_id": "6032355d2ea555000a5ac81e",
+      "customerId": "5f67a4bc789a67000b31cc94",
+      "address": {
+        "number": "",
+        "aptNo": "",
+        "floor": "",
+        "directions": "",
+        "zipCode": "",
+        "_id": "5f67a4d1789a67000b31cc96",
+        "title": "Home",
+        "addressLine": "Unnamed Road, Lusail",
+        "fullAddress": "Unnamed Road, Lusail",
+        "id": "5f67a4d1789a67000b31cc96"
+      },
+      "category": {
+        "titles": {
+          "en": "Carwash",
+          "ar": "غسيل سيارات"
+        },
+        "_id": "5e7a40aed2dd69acb979d605",
+        "slug": "carwash",
+        "title": "Carwash",
+        "image": {
+          "originalUrl": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.png",
+          "originalUrl@2x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@2x.png",
+          "originalUrl@3x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@3x.png",
+          "originalUrl@4x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@4x.png",
+          "originalUrlPDF": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.pdf",
+          "originalUrlSVG": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.svg"
+        },
+        "id": "5e7a40aed2dd69acb979d605",
+        "subTitle": "",
+        "description": "",
+        "shortDescription": "",
+        "slogan": "",
+        "searchPlaceholder": "",
+        "skipHint": "",
+        "skipButtonLabel": "",
+        "serviceDetailsPrimaryActionLabel": "",
+        "bookingFormPrimaryActionLabel": ""
+      },
+      "status": "waiting_for_pro_response",
+      "total": 69,
+      "statusBackgroundColor": "#727991",
+      "proDetailsSection": {
+        "title": "SEARCHING FOR THE BEST PRO NEAR YOU",
+        "displayType": "searching",
+        "callIsEnable": false
+      },
+      "isCancelable": true,
+      "customerCanReview": false,
+      "isOnGoing": true,
+      "admin_canChangePro": true,
+      "pro_nextState": {
+        "status": "accepted",
+        "updateStatusButtonText": "Accept",
+        "proWillBeIdle": false
+      },
+      "pro_displayMode": "newRequest",
+      "pro_isEditable": false,
+      "pro_timeToDisplay": "Sun, 21 Feb 2021 - 14:00 PM",
+      "id": "6032355d2ea555000a5ac81e",
+      "statusTitle": "Waiting for Pro",
+      "selectedScheduleFormatted": "Sun, 21 Feb 2021 | 2 - 3 PM",
+      "selectedReturnDateFormatted": "",
+      "paymentMethodTitle": ""
+    },
+    {
+      "orderNumber": 11536,
+      "selectedSchedule": "2021-02-21T11:00:00.000Z",
+      "_id": "60323bdc744455000b9d293e",
+      "customerId": "5f67a4bc789a67000b31cc94",
+      "address": {
+        "number": "",
+        "aptNo": "",
+        "floor": "",
+        "directions": "",
+        "zipCode": "",
+        "_id": "5f67a4d1789a67000b31cc96",
+        "title": "Home",
+        "addressLine": "Unnamed Road, Lusail",
+        "fullAddress": "Unnamed Road, Lusail",
+        "id": "5f67a4d1789a67000b31cc96"
+      },
+      "category": {
+        "titles": {
+          "en": "Carwash",
+          "ar": "غسيل سيارات"
+        },
+        "_id": "5e7a40aed2dd69acb979d605",
+        "slug": "carwash",
+        "title": "Carwash",
+        "image": {
+          "originalUrl": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.png",
+          "originalUrl@2x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@2x.png",
+          "originalUrl@3x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@3x.png",
+          "originalUrl@4x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@4x.png",
+          "originalUrlPDF": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.pdf",
+          "originalUrlSVG": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.svg"
+        },
+        "id": "5e7a40aed2dd69acb979d605",
+        "subTitle": "",
+        "description": "",
+        "shortDescription": "",
+        "slogan": "",
+        "searchPlaceholder": "",
+        "skipHint": "",
+        "skipButtonLabel": "",
+        "serviceDetailsPrimaryActionLabel": "",
+        "bookingFormPrimaryActionLabel": ""
+      },
+      "status": "waiting_for_pro_response",
+      "total": 149,
+      "statusBackgroundColor": "#727991",
+      "proDetailsSection": {
+        "title": "SEARCHING FOR THE BEST PRO NEAR YOU",
+        "displayType": "searching",
+        "callIsEnable": false
+      },
+      "isCancelable": true,
+      "customerCanReview": false,
+      "isOnGoing": true,
+      "admin_canChangePro": true,
+      "pro_nextState": {
+        "status": "accepted",
+        "updateStatusButtonText": "Accept",
+        "proWillBeIdle": false
+      },
+      "pro_displayMode": "newRequest",
+      "pro_isEditable": false,
+      "pro_timeToDisplay": "Sun, 21 Feb 2021 - 14:00 PM",
+      "id": "60323bdc744455000b9d293e",
+      "statusTitle": "Waiting for Pro",
+      "selectedScheduleFormatted": "Sun, 21 Feb 2021 | 2 - 3 PM",
+      "selectedReturnDateFormatted": "",
+      "paymentMethodTitle": ""
+    }
+  ],
+  "categories": [
+    {
+      "titles": {
+        "en": "Carwash",
+        "ar": "غسيل سيارات"
+      },
+      "subTitles": {
+        "en": "4 Packages",
+        "ar": "4 حزم"
+      },
+      "descriptions": {
+        "en": "Our services are what you want! Book one of them.",
+        "ar": "خدماتنا هي ما تحتاج إليه! احجز واحدة منها."
+      },
+      "shortDescriptions": {
+        "en": "Basic | Eco | Pro | VIP",
+        "ar": "الأولية | ايكو | برو | في أي بي"
+      },
+      "slogans": {
+        "en": "Like Day One!",
+        "ar": "مثل اليوم الأول!"
+      },
+      "isActive": true,
+      "sort": 0,
+      "hasNewBadge": false,
+      "_id": "5e7a40aed2dd69acb979d605",
+      "slug": "carwash",
+      "displayType": "subServices",
+      "title": "Carwash",
+      "subTitle": "4 Packages",
+      "description": "Our services are what you want! Book one of them.",
+      "shortDescription": "Basic | Eco | Pro | VIP",
+      "slogan": "Like Day One!",
+      "image": {
+        "originalUrl": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.png",
+        "originalUrl@2x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@2x.png",
+        "originalUrl@3x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@3x.png",
+        "originalUrl@4x": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash@4x.png",
+        "originalUrlPDF": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.pdf",
+        "originalUrlSVG": "https://storage.googleapis.com/rafiji-staging/images/categoryImage/carwash.svg"
+      },
+      "id": "5e7a40aed2dd69acb979d605",
+      "searchPlaceholder": "",
+      "skipHint": "",
+      "skipButtonLabel": "",
+      "serviceDetailsPrimaryActionLabel": "",
+      "bookingFormPrimaryActionLabel": ""
+    }
+  ],
+  "promotions": [
+    {
+      "image": {
+        "originalUrl": "https://storage.googleapis.com/rafiji-staging/images/promotions/travel.png"
+      }
+    },
+    {
+      "image": {
+        "originalUrl": "https://storage.googleapis.com/rafiji-staging/images/promotions/movie.png"
+      }
+    }
+  ]
+}
