@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.znggis.sampleservicebookingapp.ui.HomeFragment"
+        android:name="com.znggis.sampleservicebookingapp.ui.home.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_serviceFragment"

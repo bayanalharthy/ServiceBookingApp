@@ -1,16 +1,13 @@
 package com.znggis.sampleservicebookingapp.repo
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth
+import com.znggis.sampleservicebookingapp.di.PostExecutionThread
 import com.znggis.sampleservicebookingapp.repo.remote.ActionResult
 import com.znggis.sampleservicebookingapp.repo.remote.api.HOME_PAGE_JSON
-import com.znggis.sampleservicebookingapp.repo.remote.api.HomeApi
 import com.znggis.sampleservicebookingapp.repo.remote.api.HomeApiImpl
 import com.znggis.sampleservicebookingapp.repo.remote.base.RetrofitCreator
-import com.znggis.sampleservicebookingapp.repo.remote.data.HomeData
 import com.znggis.sampleservicebookingapp.repo.remote.mapper.HomeDetailMapper
 import com.znggis.sampleservicebookingapp.repo.remote.service.HomeService
-import com.znggis.sampleservicebookingapp.util.MainCoroutineRule
 import com.znggis.sampleservicebookingapp.util.MockResponseFileReader
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
@@ -40,7 +37,17 @@ class HomeRepositoryTest {
         val homeService =
             RetrofitCreator(home.toUrl().toString()).build().create(HomeService::class.java)
         val apiHome = HomeApiImpl(homeService, HomeDetailMapper())
-        homeRepository = HomeRepositoryImpl(apiHome, coroutineDispatcher)
+
+        val executionThread = object : PostExecutionThread {
+            override val main: CoroutineDispatcher
+                get() = coroutineDispatcher
+            override val io: CoroutineDispatcher
+                get() = coroutineDispatcher
+            override val default: CoroutineDispatcher
+                get() = coroutineDispatcher
+
+        }
+        homeRepository = HomeRepositoryImpl(apiHome, executionThread)
     }
 
     @Test
