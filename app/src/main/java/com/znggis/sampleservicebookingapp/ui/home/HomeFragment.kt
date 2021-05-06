@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
 import com.znggis.sampleservicebookingapp.databinding.FragmentHomeBinding
 import com.znggis.sampleservicebookingapp.di.injector.inject
+import com.znggis.sampleservicebookingapp.repo.remote.data.HomeData
 import com.znggis.sampleservicebookingapp.ui.setupSnackbar
 import com.znggis.sampleservicebookingapp.ui.viewBinding
 import javax.inject.Inject
@@ -44,17 +45,25 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.root.setupSnackbar(viewLifecycleOwner, viewModel.error, Snackbar.LENGTH_LONG)
-
+        viewModel.loading.observe(viewLifecycleOwner, {
+            it?.let {
+                it.getContentIfNotHandled()?.let { visible ->
+                    binding.progress.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+                }
+            }
+        })
 
         viewModel.data.observe(viewLifecycleOwner, {
-
+            it?.let {
+                bindRv(it)
+            }
         })
 
-
-        viewModel.loading.observe(viewLifecycleOwner, {
-
-        })
         viewModel.fetch()
+    }
+
+    private fun bindRv(data: HomeData) {
+
     }
 
     override fun onDestroyView() {
