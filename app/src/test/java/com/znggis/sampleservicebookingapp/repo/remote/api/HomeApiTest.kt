@@ -6,6 +6,7 @@ import com.znggis.sampleservicebookingapp.repo.remote.base.RetrofitCreator
 import com.znggis.sampleservicebookingapp.repo.remote.mapper.HomeDetailMapper
 import com.znggis.sampleservicebookingapp.repo.remote.service.HomeService
 import com.znggis.sampleservicebookingapp.util.MockResponseFileReader
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -26,7 +27,6 @@ class HomeApiTest {
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-
         mockWebServer = MockWebServer()
         mockWebServer.start()
         val home = mockWebServer.url("")
@@ -42,7 +42,7 @@ class HomeApiTest {
     }
 
     @Test
-    fun `Given request data, When Status 200Ok, Then check if data is in Network Layer`() =
+    fun `Given request data, When Status 200-Ok, Then check if data is in Network Layer`() =
         runBlocking {
 
             val response = MockResponse()
@@ -50,7 +50,7 @@ class HomeApiTest {
                 .setBody(MockResponseFileReader(HOME_PAGE_JSON).content)
             mockWebServer.enqueue(response)
 
-            val data = apiHome.loadHomeData()
+            val data = apiHome.loadHomeData().first()
             Truth.assertThat(data.categories.size).isEqualTo(1)
             Truth.assertThat(data.promotions.size).isEqualTo(2)
             Truth.assertThat(data.categories.first().title).isEqualTo("Carwash")
