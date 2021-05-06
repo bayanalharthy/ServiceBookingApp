@@ -44,6 +44,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/services"
+        tools:layout_editor_absoluteX="24dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_promotions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/promotions"
+        tools:layout_editor_absoluteX="24dp" />
+
+
     <TextView
         android:id="@+id/promotions"
         android:layout_width="wrap_content"
@@ -58,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/services" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_service" />
 
     <TextView
         android:id="@+id/textView4"
@@ -136,24 +162,14 @@
 
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/top_navigation_constraint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promotions" />
-
     <FrameLayout
         android:id="@+id/progress"
-        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/progress_bg"
         android:elevation="5dp"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
