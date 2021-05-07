@@ -13,5 +13,11 @@
     <color name="primary">#103AC1</color>
     <color name="grey_medium">#727991</color>
     <color name="grey_light">#F0F1F5</color>
+    <color name="grey_black">#08143C</color>
     <color name="grey_regular">#D1D4DC</color>
+    <color name="ordinary_service">#E6EBFA</color>
+    <color name="vip_service">#103AC1</color>
+    <color name="discount_price">#FB2F5F</color>
+    <color name="discount_badge">#FC3D39</color>
+    <color name="price">#22C8EF</color>
 </resources>

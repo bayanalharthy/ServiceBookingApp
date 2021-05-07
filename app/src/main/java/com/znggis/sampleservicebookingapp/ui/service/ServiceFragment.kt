@@ -2,12 +2,14 @@ package com.znggis.sampleservicebookingapp.ui.service
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.navigateUp
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
 import com.znggis.sampleservicebookingapp.databinding.FragmentServiceBinding
@@ -32,6 +34,9 @@ class ServiceFragment : FullScreenDialogFragment() {
 
     private val binding: FragmentServiceBinding by viewBinding(FragmentServiceBinding::bind)
 
+    @Inject
+    lateinit var serviceAdaptor: ServiceAdaptor
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         inject(this)
@@ -47,7 +52,9 @@ class ServiceFragment : FullScreenDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
         binding.root.setupSnackbar(viewLifecycleOwner, viewModel.error, Snackbar.LENGTH_LONG)
         viewModel.loading.observe(viewLifecycleOwner, {
             it?.let {
@@ -74,11 +81,18 @@ class ServiceFragment : FullScreenDialogFragment() {
     }
 
     private fun showServices(services: List<Service>) {
-
+        binding.rvServices.adapter = serviceAdaptor
+        binding.rvServices.layoutManager = GridLayoutManager(
+            requireContext(),
+            2,
+            GridLayoutManager.VERTICAL,
+            false
+        )
+        serviceAdaptor.submitList(services)
     }
 
     private fun loadImage(image: String) {
-        imageLoader.loadImage(binding.imgService,image)
+        imageLoader.loadImage(binding.imgService, image)
     }
 
 

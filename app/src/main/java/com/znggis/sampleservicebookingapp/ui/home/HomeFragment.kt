@@ -2,7 +2,6 @@ package com.znggis.sampleservicebookingapp.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +31,7 @@ class HomeFragment : Fragment() {
     private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
 
     @Inject
-    lateinit var servicesAdaptor: ServiceAdaptor
+    lateinit var servicesAdaptor: CategoriesAdaptor
 
 
     @Inject
@@ -60,7 +59,7 @@ class HomeFragment : Fragment() {
         viewModel.loading.observe(viewLifecycleOwner, {
             it?.let {
                 it.getContentIfNotHandled()?.let { visible ->
-                    binding.includeBottomBar.progress.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+                    binding.includeProgressLayout.progress.visibility = if (visible) View.VISIBLE else View.INVISIBLE
                 }
             }
         })

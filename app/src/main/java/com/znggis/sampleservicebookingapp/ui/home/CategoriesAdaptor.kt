@@ -5,20 +5,20 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.znggis.sampleservicebookingapp.R
-import com.znggis.sampleservicebookingapp.databinding.ItemServiceBinding
+import com.znggis.sampleservicebookingapp.databinding.ItemCategoryBinding
 import com.znggis.sampleservicebookingapp.repo.remote.data.Category
 import com.znggis.sampleservicebookingapp.ui.image.ImageLoader
 import com.znggis.sampleservicebookingapp.ui.inflate
 import javax.inject.Inject
 
-class ServiceAdaptor @Inject constructor(
+class CategoriesAdaptor @Inject constructor(
     private val imageLoader: ImageLoader
-) : ListAdapter<Category, ServiceAdaptor.CategoryViewHolder>(diffUtilCallback) {
+) : ListAdapter<Category, CategoriesAdaptor.CategoryViewHolder>(diffUtilCallback) {
 
     var onClickListener: ((Category) -> Unit)? = null
 
     inner class CategoryViewHolder(
-        private val binding: ItemServiceBinding,
+        private val binding: ItemCategoryBinding,
         private val imageLoader: ImageLoader
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category) {
@@ -50,7 +50,7 @@ class ServiceAdaptor @Inject constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
-            ItemServiceBinding.bind(parent.inflate(R.layout.item_service)),
+            ItemCategoryBinding.bind(parent.inflate(R.layout.item_category)),
             imageLoader
         )
     }

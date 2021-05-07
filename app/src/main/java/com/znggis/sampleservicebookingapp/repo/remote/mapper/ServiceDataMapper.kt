@@ -15,7 +15,9 @@ class ServiceDataMapper : Mapper<ServicePageData, ServiceData>() {
                 it.discountPercentage,
                 it.image.originalUrl,
                 it.isSpecial,
-                it.sort
+                it.sort,
+                it.listBasePrice,
+                it.basePrice
             )
         }
         return ServiceData(

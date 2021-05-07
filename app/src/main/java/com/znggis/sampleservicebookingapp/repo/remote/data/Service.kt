@@ -8,5 +8,7 @@ data class Service(
     val discountPercentage: Int,
     val image: String,
     val isSpecial: Boolean,
-    val sort: Int
+    val sort: Int,
+    val price:Int,
+    val priceBeforeDis:Int
 )

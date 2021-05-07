@@ -1,33 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="category"
-            type="com.znggis.sampleservicebookingapp.repo.remote.data.Category" />
-    </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="171dp"
-        android:layout_height="190dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/item_service_bg"
-        android:elevation="5dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_service"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        <variable
+            name="service"
+            type="com.znggis.sampleservicebookingapp.repo.remote.data.Service" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="161dp"
+        android:layout_height="209dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintDimensionRatio="4:4"
+        app:background="@{service.special}"
+        android:background="@drawable/item_service_bg">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="33dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/badge_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:visibility="@{service.hasDiscount}">
+
+            <TextView
+                android:id="@+id/discount_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+                android:text='@{"%"+String.valueOf(service.discountPercentage)}'
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/img_service_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/ic_carwash"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -35,15 +65,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="@{category.title}"
+            android:text="@{service.title}"
+            app:serviceCustomization="@{service}"
+            android:textColor="@color/grey_black"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.57" />
+            app:layout_constraintTop_toBottomOf="@+id/img_service_icon"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tv_subtitle"
@@ -51,10 +86,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="@{category.subTitle}"
+            android:text="@{service.subtitle}"
+            app:serviceCustomization="@{service}"
+            android:textColor="@color/grey_black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/tv_description"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,16 +106,59 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/poppins_italic"
-            android:text="@{category.shortDescriptions}"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/poppins_lightitalic"
+            android:text="@{service.shortDescription}"
+            app:serviceCustomization="@{service}"
+            android:textColor="@color/grey_medium"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text='@{String.valueOf(service.price) + " QAR"}'
+            android:textColor="@color/price"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/tv_discounted_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text='@{String.valueOf(service.priceBeforeDis) + " QAR"}'
+            app:visibility="@{service.hasDiscount}"
+            android:textColor="@color/discount_price"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:serviceCustomization="@{service}"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
