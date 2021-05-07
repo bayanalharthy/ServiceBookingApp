@@ -21,7 +21,7 @@ class ServiceDataMapper : Mapper<ServicePageData, ServiceData>() {
         return ServiceData(
             slogan = i.slogan,
             title = i.title,
-            image = i.image.originalUrl,
+            image = i.image.originalUrl3x,
             description = i.description,
             services = services,
         )

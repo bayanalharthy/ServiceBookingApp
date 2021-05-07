@@ -14,6 +14,7 @@ import com.znggis.sampleservicebookingapp.databinding.FragmentServiceBinding
 import com.znggis.sampleservicebookingapp.di.injector.inject
 import com.znggis.sampleservicebookingapp.repo.remote.data.Service
 import com.znggis.sampleservicebookingapp.ui.FullScreenDialogFragment
+import com.znggis.sampleservicebookingapp.ui.image.ImageLoader
 import com.znggis.sampleservicebookingapp.ui.setupSnackbar
 import com.znggis.sampleservicebookingapp.ui.viewBinding
 import javax.inject.Inject
@@ -23,6 +24,9 @@ class ServiceFragment : FullScreenDialogFragment() {
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     private val viewModel: ServicesViewModel by viewModels { factory }
 
@@ -74,7 +78,7 @@ class ServiceFragment : FullScreenDialogFragment() {
     }
 
     private fun loadImage(image: String) {
-
+        imageLoader.loadImage(binding.imgService,image)
     }
 
 
