@@ -2,7 +2,6 @@ package com.znggis.sampleservicebookingapp.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
 import com.znggis.sampleservicebookingapp.databinding.FragmentHomeBinding
 import com.znggis.sampleservicebookingapp.di.injector.inject
-import com.znggis.sampleservicebookingapp.repo.remote.data.HomeData
+import com.znggis.sampleservicebookingapp.repo.remote.data.Category
+import com.znggis.sampleservicebookingapp.repo.remote.data.Promotion
 import com.znggis.sampleservicebookingapp.ui.setupSnackbar
 import com.znggis.sampleservicebookingapp.ui.viewBinding
 import javax.inject.Inject
@@ -30,6 +30,10 @@ class HomeFragment : Fragment() {
 
     @Inject
     lateinit var servicesAdaptor: ServiceAdaptor
+
+
+    @Inject
+    lateinit var promotionsAdaptor: PromotionsAdaptor
 
 
     override fun onAttach(context: Context) {
@@ -60,19 +64,28 @@ class HomeFragment : Fragment() {
 
         viewModel.data.observe(viewLifecycleOwner, {
             it?.let {
-                bindRv(it)
+                bindRvServices(it.categories)
+                bindRvPromotions(it.promotions)
             }
         })
 
         viewModel.fetch()
     }
 
-    private fun bindRv(data: HomeData) {
+    private fun bindRvPromotions(promotions: List<Promotion>) {
+        binding.rvPromotions.layoutManager = LinearLayoutManager(
+            requireContext(), LinearLayoutManager.HORIZONTAL, false
+        )
+        binding.rvPromotions.adapter = promotionsAdaptor
+        promotionsAdaptor.submitList(promotions)
+    }
+
+    private fun bindRvServices(categories: List<Category>) {
         binding.rvService.layoutManager = LinearLayoutManager(
             requireContext(), LinearLayoutManager.HORIZONTAL, false
         )
         binding.rvService.adapter = servicesAdaptor
-        servicesAdaptor.submitList(data.categories)
+        servicesAdaptor.submitList(categories)
     }
 
     override fun onDestroyView() {
