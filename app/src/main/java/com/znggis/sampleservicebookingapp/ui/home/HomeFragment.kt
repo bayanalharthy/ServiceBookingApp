@@ -2,12 +2,15 @@ package com.znggis.sampleservicebookingapp.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
@@ -52,6 +55,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.e("Home", "onViewCreated")
 
         binding.root.setupSnackbar(viewLifecycleOwner, viewModel.error, Snackbar.LENGTH_LONG)
         viewModel.loading.observe(viewLifecycleOwner, {
@@ -86,9 +90,14 @@ class HomeFragment : Fragment() {
         )
         binding.rvService.adapter = servicesAdaptor
         servicesAdaptor.submitList(categories)
+        servicesAdaptor.onClickListener = {
+            val bundle = bundleOf(getString(R.string.arg_category) to it.path)
+            findNavController().navigate(R.id.action_homeFragment_to_serviceFragment, bundle)
+        }
     }
 
     override fun onDestroyView() {
+        Log.e("Home", "onDestroyView")
         super.onDestroyView()
     }
 

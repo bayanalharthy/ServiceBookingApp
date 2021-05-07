@@ -26,6 +26,8 @@ class ServiceAdaptor @Inject constructor(
 
             //TODO I could write custom binding
             imageLoader.loadImage(binding.imgService, category.image)
+
+            binding.root.setOnClickListener { onClickListener?.let { it(category) } }
         }
     }
 

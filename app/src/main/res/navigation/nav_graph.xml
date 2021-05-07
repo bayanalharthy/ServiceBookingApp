@@ -13,11 +13,18 @@
             android:id="@+id/action_homeFragment_to_serviceFragment"
             app:destination="@id/serviceFragment"
             app:launchSingleTop="false"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="false">
+
+            <argument
+                android:name="@string/arg_category"
+                android:defaultValue="@null"
+                app:argType="string" />
+
+        </action>
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/serviceFragment"
-        android:name="com.znggis.sampleservicebookingapp.ui.ServiceFragment"
+        android:name="com.znggis.sampleservicebookingapp.ui.service.ServiceFragment"
         android:label="fragment_service"
         tools:layout="@layout/fragment_service" />
 </navigation>

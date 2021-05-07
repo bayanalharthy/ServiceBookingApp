@@ -12,7 +12,8 @@ class HomeDetailMapper : Mapper<HomePageDetail, HomeData>() {
                 it.titles.en,
                 it.subTitles.en,
                 it.shortDescriptions.en,
-                it.image.originalUrl
+                it.image.originalUrl,
+                it.slug
             )
         }
         val promotions = i.promotions.map { Promotion(it.image.originalUrl) }

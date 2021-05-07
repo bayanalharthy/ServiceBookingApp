@@ -2,6 +2,7 @@
     <string name="app_name">SampleServiceBookingApp</string>
     <string name="label_home">Home</string>
     <string name="label_services">Services</string>
+    <string name="arg_category">serviceType</string>
     <string name="label_services_upper_case">SERVICES</string>
     <string name="label_profile">Profile</string>
     <string name="label_help">Help</string>
