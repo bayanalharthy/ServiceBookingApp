@@ -13,7 +13,7 @@ class HomeApiImpl @Inject constructor(
 ) : HomeApi {
 
     override fun loadHomeData(): Flow<HomeData> = flow {
-        val data = service.loadTopStories()
+        val data = service.loadHomeData()
         emit(mapper.from(data))
     }
 }

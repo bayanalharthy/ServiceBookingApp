@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface HomeService {
     @GET("home")
-    suspend fun loadTopStories(): HomePageDetail
+    suspend fun loadHomeData(): HomePageDetail
 }
