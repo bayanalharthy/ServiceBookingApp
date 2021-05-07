@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
 import com.znggis.sampleservicebookingapp.databinding.FragmentHomeBinding
@@ -26,6 +27,10 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels { factory }
 
     private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
+
+    @Inject
+    lateinit var servicesAdaptor: ServiceAdaptor
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -63,7 +68,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun bindRv(data: HomeData) {
-
+        binding.rvService.layoutManager = LinearLayoutManager(
+            requireContext(), LinearLayoutManager.HORIZONTAL, false
+        )
+        binding.rvService.adapter = servicesAdaptor
+        servicesAdaptor.submitList(data.categories)
     }
 
     override fun onDestroyView() {

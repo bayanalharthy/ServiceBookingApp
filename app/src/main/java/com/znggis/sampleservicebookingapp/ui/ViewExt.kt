@@ -1,7 +1,10 @@
 package com.znggis.sampleservicebookingapp.ui
 
 
+import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import androidx.viewbinding.ViewBinding
@@ -105,4 +108,12 @@ fun View.showSnackbar(snackbarText: String, timeLength: Int) {
         })
         show()
     }
+}
+
+
+
+fun ViewGroup.inflate(layout: Int): View {
+    val layoutInflater: LayoutInflater =
+        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    return layoutInflater.inflate(layout, this, false)
 }

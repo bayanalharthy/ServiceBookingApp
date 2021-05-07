@@ -1,166 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/top_banner_home" />
-
-    <TextView
-        android:id="@+id/textView3"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/label_book_now"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/bottom_nave_height">
 
-    <TextView
-        android:id="@+id/services"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="@string/label_services_upper_case"
-        android:textColor="@color/grey_medium"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+            tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_service"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/services"
-        tools:layout_editor_absoluteX="24dp" />
+            <include
+                android:id="@+id/include"
+                layout="@layout/top_banner_home" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/label_book_now"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include" />
+
+            <TextView
+                android:id="@+id/services"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/label_services_upper_case"
+                android:textColor="@color/grey_medium"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/services"
+                tools:layout_editor_absoluteX="24dp" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_promotions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/promotions"
-        tools:layout_editor_absoluteX="24dp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_promotions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/promotions"
+                tools:layout_editor_absoluteX="24dp" />
 
+            <TextView
+                android:id="@+id/promotions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/label_promotion_uppercase"
+                android:textColor="@color/grey_medium"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_service" />
 
-    <TextView
-        android:id="@+id/promotions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="@string/label_promotion_uppercase"
-        android:textColor="@color/grey_medium"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_service" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:text="@string/label_book_slogan"
+                android:textColor="@color/grey_medium"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:text="@string/label_book_slogan"
-        android:textColor="@color/grey_medium"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="0dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
-        android:id="@+id/top_navigation_constraint"
-        android:layout_width="match_parent"
-        android:layout_height="83dp"
-        android:background="@drawable/bottom_navigation_bg"
-        android:elevation="5dp"
-        android:paddingBottom="15dp"
-        app:bnc_mode="spread"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    </androidx.core.widget.NestedScrollView>
 
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="true"
-            app:bt_colorActive="@color/primary"
-            app:bt_colorInactive="@color/grey_medium"
-            app:bt_icon="@drawable/ic_home"
-            app:bt_shape="@color/white"
-            app:bt_title="@string/label_home"
-            app:bt_titleSize="@dimen/bottom_nav_title_size" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_services"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="false"
-            app:bt_colorActive="@color/primary"
-            app:bt_colorInactive="@color/grey_medium"
-            app:bt_icon="@drawable/ic_services"
-            app:bt_shape="@color/white"
-            app:bt_title="@string/label_services"
-            app:bt_titleSize="@dimen/bottom_nav_title_size" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="false"
-            app:bt_colorActive="@color/primary"
-            app:bt_colorInactive="@color/grey_medium"
-            app:bt_icon="@drawable/ic_user"
-            app:bt_shape="@color/white"
-            app:bt_title="@string/label_profile"
-            app:bt_titleSize="@dimen/bottom_nav_title_size" />
-
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/c_item_help"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="false"
-            app:bt_colorActive="@color/primary"
-            app:bt_colorInactive="@color/grey_medium"
-            app:bt_icon="@drawable/ic_help"
-            app:bt_shape="@color/white"
-            app:bt_title="@string/label_help"
-            app:bt_titleSize="@dimen/bottom_nav_title_size" />
-
-    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+    <include layout="@layout/bottom_bar" />
 
     <FrameLayout
         android:id="@+id/progress"
@@ -184,4 +136,7 @@
 
     </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+
+
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gauravk.bubblenavigation.BubbleNavigationConstraintView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_navigation_constraint"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_nave_height"
+    android:layout_gravity="bottom"
+    android:background="@drawable/bottom_navigation_bg"
+    android:elevation="5dp"
+    android:paddingBottom="15dp"
+    app:bnc_mode="spread">
+
+    <com.gauravk.bubblenavigation.BubbleToggleView
+        android:id="@+id/c_item_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bt_active="true"
+        app:bt_colorActive="@color/primary"
+        app:bt_colorInactive="@color/grey_medium"
+        app:bt_icon="@drawable/ic_home"
+        app:bt_shape="@color/white"
+        app:bt_title="@string/label_home"
+        app:bt_titleSize="@dimen/bottom_nav_title_size" />
+
+    <com.gauravk.bubblenavigation.BubbleToggleView
+        android:id="@+id/c_item_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bt_active="false"
+        app:bt_colorActive="@color/primary"
+        app:bt_colorInactive="@color/grey_medium"
+        app:bt_icon="@drawable/ic_services"
+        app:bt_shape="@color/white"
+        app:bt_title="@string/label_services"
+        app:bt_titleSize="@dimen/bottom_nav_title_size" />
+
+    <com.gauravk.bubblenavigation.BubbleToggleView
+        android:id="@+id/c_item_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bt_active="false"
+        app:bt_colorActive="@color/primary"
+        app:bt_colorInactive="@color/grey_medium"
+        app:bt_icon="@drawable/ic_user"
+        app:bt_shape="@color/white"
+        app:bt_title="@string/label_profile"
+        app:bt_titleSize="@dimen/bottom_nav_title_size" />
+
+    <com.gauravk.bubblenavigation.BubbleToggleView
+        android:id="@+id/c_item_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bt_active="false"
+        app:bt_colorActive="@color/primary"
+        app:bt_colorInactive="@color/grey_medium"
+        app:bt_icon="@drawable/ic_help"
+        app:bt_shape="@color/white"
+        app:bt_title="@string/label_help"
+        app:bt_titleSize="@dimen/bottom_nav_title_size" />
+
+</com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+
