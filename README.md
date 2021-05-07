@@ -3,8 +3,8 @@
 Simple app for challenging UI development skill using Kotlin.
  ## Screen shots
 <h4 align="center">
- <img src="https://raw.githubusercontent.com/rahmatya685/ServiceBookingApp/master/screenshots/Home-withaout-avatar.png" width="30%" vspace="10" hspace="10">
- <img src="https://raw.githubusercontent.com/rahmatya685/ServiceBookingApp/master/screenshots/Carwash services - subservices.png" width="30%" vspace="10" hspace="10">
+ <img src="https://raw.githubusercontent.com/rahmatya685/ServiceBookingApp/master/app/screenshots/Home-withaout-avatar.png" width="30%" vspace="10" hspace="10">
+ <img src="https://raw.githubusercontent.com/rahmatya685/ServiceBookingApp/master/app/screenshots/Carwash services - subservices.png" width="30%" vspace="10" hspace="10">
 
 ## TechStack
 - [MVVM Architecture](https://medium.com/upday-devs/android-architecture-patterns-part-3-model-view-viewmodel-e7eeee76b73b) - Common patten for android apps
