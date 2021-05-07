@@ -1,7 +1,11 @@
 package com.znggis.sampleservicebookingapp.ui.service
 
+import android.content.res.Resources
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.setMargins
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.znggis.sampleservicebookingapp.R
@@ -10,6 +14,7 @@ import com.znggis.sampleservicebookingapp.repo.remote.data.Service
 import com.znggis.sampleservicebookingapp.ui.image.ImageLoader
 import com.znggis.sampleservicebookingapp.ui.inflate
 import javax.inject.Inject
+
 
 class ServiceAdaptor @Inject constructor(
     private val imageLoader: ImageLoader
@@ -44,6 +49,7 @@ class ServiceAdaptor @Inject constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
+
         return ServiceViewHolder(
             ItemServiceBinding.bind(parent.inflate(R.layout.item_service)),
             imageLoader

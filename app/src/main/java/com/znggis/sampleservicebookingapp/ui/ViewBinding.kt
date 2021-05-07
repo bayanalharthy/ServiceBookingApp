@@ -31,7 +31,7 @@ fun setBackground(tv: TextView, value: Service) {
         if (tv.id == R.id.tv_description)
             tv.setTextColor(ContextCompat.getColor(tv.context, R.color.grey_medium))
         else
-            tv.setTextColor(ContextCompat.getColor(tv.context, R.color.vip_service))
+            tv.setTextColor(ContextCompat.getColor(tv.context, R.color.grey_black))
     }
     if (tv.id == R.id.tv_discounted_price) {
         tv.paintFlags = tv.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.navigateUp
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
@@ -88,6 +87,7 @@ class ServiceFragment : FullScreenDialogFragment() {
             GridLayoutManager.VERTICAL,
             false
         )
+
         serviceAdaptor.submitList(services)
     }
 
