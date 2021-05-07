@@ -5,5 +5,5 @@ import com.znggis.sampleservicebookingapp.repo.remote.data.ServiceData
 import kotlinx.coroutines.flow.Flow
 
 interface ServicesRepository {
-    fun getServices(): Flow<ActionResult<ServiceData>>
+    fun getServices(category:String): Flow<ActionResult<ServiceData>>
 }

@@ -55,13 +55,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("Home", "onViewCreated")
 
         binding.root.setupSnackbar(viewLifecycleOwner, viewModel.error, Snackbar.LENGTH_LONG)
         viewModel.loading.observe(viewLifecycleOwner, {
             it?.let {
                 it.getContentIfNotHandled()?.let { visible ->
-                    binding.progress.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+                    binding.includeBottomBar.progress.visibility = if (visible) View.VISIBLE else View.INVISIBLE
                 }
             }
         })
@@ -94,11 +93,6 @@ class HomeFragment : Fragment() {
             val bundle = bundleOf(getString(R.string.arg_category) to it.path)
             findNavController().navigate(R.id.action_homeFragment_to_serviceFragment, bundle)
         }
-    }
-
-    override fun onDestroyView() {
-        Log.e("Home", "onDestroyView")
-        super.onDestroyView()
     }
 
 }

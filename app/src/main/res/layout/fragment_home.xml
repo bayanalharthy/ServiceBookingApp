@@ -114,27 +114,9 @@
 
     <include layout="@layout/bottom_bar" />
 
-    <FrameLayout
-        android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/progress_bg"
-        android:elevation="5dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            app:indicatorColor="@color/primary" />
-
-    </FrameLayout>
+    <include
+        android:id="@+id/include_bottom_bar"
+        layout="@layout/progress_layout" />
 
 </FrameLayout>
 

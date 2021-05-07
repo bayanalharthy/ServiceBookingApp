@@ -1,5 +1,6 @@
 package com.znggis.sampleservicebookingapp.ui.service
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,9 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.znggis.sampleservicebookingapp.R
 import com.znggis.sampleservicebookingapp.databinding.FragmentServiceBinding
+import com.znggis.sampleservicebookingapp.di.injector.inject
+import com.znggis.sampleservicebookingapp.repo.remote.data.Service
 import com.znggis.sampleservicebookingapp.ui.FullScreenDialogFragment
+import com.znggis.sampleservicebookingapp.ui.setupSnackbar
 import com.znggis.sampleservicebookingapp.ui.viewBinding
 import javax.inject.Inject
 
@@ -23,6 +28,10 @@ class ServiceFragment : FullScreenDialogFragment() {
 
     private val binding: FragmentServiceBinding by viewBinding(FragmentServiceBinding::bind)
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,10 +43,38 @@ class ServiceFragment : FullScreenDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.root.setupSnackbar(viewLifecycleOwner, viewModel.error, Snackbar.LENGTH_LONG)
+        viewModel.loading.observe(viewLifecycleOwner, {
+            it?.let {
+                it.getContentIfNotHandled()?.let { visible ->
+                    binding.includeProgressLayout.progress.visibility =
+                        if (visible) View.VISIBLE else View.INVISIBLE
+                }
+            }
+        })
+
+        viewModel.data.observe(viewLifecycleOwner, {
+            it?.let { data ->
+                binding.serviceData = data
+                loadImage(data.image)
+                showServices(data.services)
+            }
+        })
+
         arguments?.let { arg ->
-            val category = arg.getString(getString(R.string.arg_category))
-            Log.e("ServiceFrg",category!!)
+            arg.getString(getString(R.string.arg_category))?.let { category ->
+                viewModel.fetchServices(category)
+            }
         }
+    }
+
+    private fun showServices(services: List<Service>) {
+
+    }
+
+    private fun loadImage(image: String) {
+
     }
 
 
